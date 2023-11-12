@@ -5,13 +5,12 @@ const songsRouter = require("./routes/songsRouter");
 const artistsRouter = require("./routes/artistsRouter");
 const statsRouter = require("./routes/statsRouter");
 
-// Custom middleware to add a response header
-app.use((req, res, next) => {
-  // Set a custom header named "X-Custom-Header"
-  res.setHeader("X-Custom-Header", "Hello from custom middleware");
+app.set("view engine", "ejs");
 
-  // Continue to the next middleware or route handler
-  next();
+app.use(express.static("public"));
+
+app.get("/", (req, res) => {
+  res.render("index");
 });
 
 app.use("/songs", songsRouter);
