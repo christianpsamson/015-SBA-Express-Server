@@ -3,52 +3,51 @@
 //=====================================================================//
 const express = require("express");
 const router = express.Router();
-const songs = require("../data/songs");
+const stats = require("../data/stats");
 let limit = 0;
-let song = "";
+let stat = "";
 
 //=====================================================================//
-// Custom middleware function: Get the limit request
+// Custom middleware function
 //=====================================================================//
 const limitSongs = (req, res, next) => {
   limit = parseInt(req.query.limit);
-  console.log("middleware function");
 
   // Handle request without query parameter
   if (!limit || limit < 0) {
-    limit = songs.length;
+    limit = stats.length;
   }
+
+  // Utilize slice() to limit the number of records
+  stat = stats.slice(0, limit);
+
   next();
 };
 
 router.use(limitSongs);
 
 //=====================================================================//
-// Query function: Use record limit as query parameter
-// Route: "/songs"
+// Query function, using record limit as query parameter
+// Router: "/stats"
 //=====================================================================//
 router.route("/").get((req, res) => {
-  console.log("/songs route");
-  // Utilize slice() to limit the number of records
-  song = songs.slice(0, limit);
-  res.json({ song });
+  res.json({ stat });
 });
 
 //=====================================================================//
-// Route: 'songs/:id"
+// Router: 'stats/:id"
 //=====================================================================//
 router.get("/:id", (req, res, next) => {
-  const song = songs.find((u) => u.id === req.params.id);
+  const stat = stats.find((u) => u.id === req.params.id);
 
   // Create an error and pass it to the next middleware
-  if (!song) {
-    const error = new Error("Song not found");
+  if (!stat) {
+    const error = new Error("Song Stats not found");
     error.status = 404;
     return next(error);
   }
 
-  res.json({ song });
-  next();
+  res.json({ stat });
 });
 
 module.exports = router;
