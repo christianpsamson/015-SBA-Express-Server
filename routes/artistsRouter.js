@@ -1,4 +1,7 @@
 //=====================================================================//
+// Data Module
+// Req: Use at least three different data categories.
+//=====================================================================//
 // Variables
 //=====================================================================//
 const express = require("express");
@@ -9,6 +12,8 @@ let artist = "";
 
 //=====================================================================//
 // Custom middleware function
+// Req: Create and use at least two pieces of custom middleware.
+//      Include query parameters for data filtering, where appropriate.
 //=====================================================================//
 const limitSongs = (req, res, next) => {
   limit = parseInt(req.query.limit);
@@ -29,6 +34,7 @@ router.use(limitSongs);
 //=====================================================================//
 // Query function, using record limit as query parameter
 // Router: "/artists"
+// Req: Create GET routes for all data that should be exposed to the client.
 //=====================================================================//
 router.route("/").get((req, res) => {
   res.json({ artist });
@@ -36,6 +42,8 @@ router.route("/").get((req, res) => {
 
 //=====================================================================//
 // Router: 'artists/:id"
+// Req: Create and use error-handling middleware.
+//      Utilize route parameters, where appropriate.
 //=====================================================================//
 router.get("/:id", (req, res, next) => {
   const artist = artists.find((u) => u.id === req.params.id);

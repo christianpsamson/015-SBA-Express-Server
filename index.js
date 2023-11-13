@@ -14,6 +14,9 @@ app.use(express.static("public"));
 
 //=====================================================================//
 // Custom middleware function to render API doc using template engine
+// Req: Create and use at least two pieces of custom middleware.
+//      Create and render at least one view using a view template
+//      and template engine.
 //=====================================================================//
 const apiDoc = (req, res) => {
   res.render("index", {
@@ -49,6 +52,7 @@ app.get("/:d", (req, res) => {
 
 //=====================================================================//
 // Error-handling middleware
+// Req: Create and use error-handling middleware.
 //=====================================================================//
 app.use((err, req, res, next) => {
   console.error(err);
