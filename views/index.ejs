@@ -7,6 +7,22 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Home Page</h1>
+    <img id="icon" src="/spotify_icon.png" alt="spotify-icon" />
+    <h1><%=title%></h1>
+    <h2>Base URL</h2>
+    <a href="<%=baseURL%>" id="highlighted"><%=baseURL%></a>
+    <br />
+    <h2 id="endPointContainer">Endpoints</h2>
+    <a href="<%=endPointSongs%>" id="highlighted"><%=endPointSongs%></a>
+    <a href="<%=endPointArtists%>" id="highlighted"><%=endPointArtists%></a>
+    <a href="<%=endPointStats%>" id="highlighted"><%=endPointStats%></a>
+    <h2>Parameters</h2>
+    <p>
+      <strong>Limit (optional): </strong>The maximum number of songs to return.
+      Default is 100.
+    </p>
+    <h3>Example</h3>
+    <a href="<%=urlLimit%>" id="highlighted"><%=urlLimit%></a>
   </body>
 </html>
+<!-- <%= %> -->

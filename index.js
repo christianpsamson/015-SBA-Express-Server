@@ -10,7 +10,14 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", {
+    title: "API | Spotify Top 100 Songs",
+    baseURL: "http://localhost:3000/",
+    endPointSongs: "http://localhost:3000/songs",
+    endPointArtists: "http://localhost:3000/artists",
+    endPointStats: "http://localhost:3000/stats",
+    urlLimit: "http://localhost:3000/songs?limit=10",
+  });
 });
 
 app.use("/songs", songsRouter);
