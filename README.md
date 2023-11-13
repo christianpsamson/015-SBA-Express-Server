@@ -11,6 +11,7 @@
   - [Example](#example)
   - [Response](#response)
 - [Errors](#errors)
+  - [Incorrect Endpoint](#incorrect-endpoint)
 
 ## Description
 
@@ -122,3 +123,13 @@ This API uses the following error codes:
 
 <li> 404 Not Found: The requested resource was not found.
 <li> 500 Internal Server Error: An unexpected error occurred on the server.
+
+### Incorrect Endpoint
+
+When the endpoint or URL is incorrect, the API doc will be rendered for the user.
+
+Example: 'song' instead of 'songs'
+
+```url
+http://localhost:3000/song
+```
