@@ -13,6 +13,7 @@
 - [Errors](#errors)
   - [Incorrect Endpoint](#incorrect-endpoint)
 - [Webpage](#web-page)
+- [Author](#author)
 
 ## Description
 
@@ -137,4 +138,10 @@ http://localhost:3000/song
 
 ## Web Page
 
-! [Base URL screenshot](/public/webpage.png)
+### Base URL Screenshot
+
+![Base URL screenshot](/public/webpage.png)
+
+## Author
+
+Christian Samson
