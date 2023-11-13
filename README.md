@@ -12,6 +12,7 @@
   - [Response](#response)
 - [Errors](#errors)
   - [Incorrect Endpoint](#incorrect-endpoint)
+- [Webpage](#web-page)
 
 ## Description
 
@@ -133,3 +134,7 @@ Example: 'song' instead of 'songs'
 ```url
 http://localhost:3000/song
 ```
+
+## Web Page
+
+! [Base URL screenshot](/public/webpage.pngwebpage.png)
