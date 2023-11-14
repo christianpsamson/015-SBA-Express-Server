@@ -44,8 +44,18 @@ router.route("/").get((req, res) => {
 // Route: 'songs/:id"
 // Req: Create and use error-handling middleware.
 //      Utilize route parameters, where appropriate.
+//      Bonus: REGEX
 //=====================================================================//
 router.get("/:id", (req, res, next) => {
+  const reqID = req.params.id;
+  const idPattern = /^[a-zA-Z0-9]{8}$/; //ID must be 8 characters long
+
+  if (!idPattern.test(reqID)) {
+    const error = new Error("Song ID is invalid. It must be 8 characters.");
+    error.status = 404;
+    return next(error);
+  }
+
   const song = songs.find((u) => u.id === req.params.id);
 
   // Create an error and pass it to the next middleware
